@@ -1,0 +1,16 @@
+# Mac files
+.DS_Store
+
+# Dependency directories
+node_modules
+
+.cache
+
+# lerna files
+/lerna-debug.log
+
+#vim stuff
+.swp
+.swo
+
+gatsby/public
