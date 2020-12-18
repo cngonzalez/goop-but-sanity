@@ -1,0 +1,31 @@
+.navheader h1 {
+  font: 3rem "Montserrat", Helvetica, sans-serif;
+  letter-spacing: 1px;
+  text-align: center;
+  padding-bottom: 2rem;
+}
+
+.navheader {
+  background-color: #250217;
+  color: #F0EFEB;
+  padding: 4rem 0 .5rem;
+}
+
+span.small {
+  font-size: 1.5rem;
+}
+
+.nav_link_bar {
+  margin: 1em auto;
+  text-align: center;
+}
+
+a.nav_link {
+  color: #EDDCD2;
+  text-decoration: none;
+  font-family: "Montserrat", Helvetica, sans-serif;
+}
+
+a:hover.nav_link  {
+  color: #F0EFEB;
+}

@@ -10,7 +10,7 @@ node_modules
 /lerna-debug.log
 
 #vim stuff
-.swp
-.swo
+*.swp
+*.swo
 
 gatsby/public

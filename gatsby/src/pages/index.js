@@ -1,6 +1,7 @@
 import * as React from "react"
 import { graphql } from "gatsby";
 import Navigation from "../components/navigation";
+import Layout from "../components/layout"
 
 export const query = graphql`
   query IndexPageQuery {
@@ -14,10 +15,12 @@ const IndexPage = (props) => {
   const { data, errors } = props;
   console.log(errors)
   return (
-    <main>
-      <title>not GOOP</title>
-      <Navigation categories={data.category.edges} />
-    </main>
+    <Layout>
+      <main>
+        <title>not GOOP</title>
+        <Navigation categories={data.category.edges} />
+      </main>
+    </Layout>
   )
 }
 
