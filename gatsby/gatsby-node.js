@@ -3,7 +3,7 @@ async function createVerticalPages(pathPrefix = "/", graphql, actions, reporter)
   const { createPage } = actions;
   const result = await graphql(`
     {
-      allSanityVertical(filter: {}) {
+      allSanityCategory(filter: {}) {
         edges {
           node {
             name
@@ -18,7 +18,7 @@ async function createVerticalPages(pathPrefix = "/", graphql, actions, reporter)
       throw result.errors
   }
 
-  const verticals = result.data.allSanityVertical.edges || []
+  const verticals = result.data.allSanityCategory.edges || []
   verticals.forEach((edge, index) => {
     const path = `/${edge.node.slug}`
     createPage({

@@ -1,35 +1,22 @@
 import * as React from "react"
-import { graphql, Link } from "gatsby";
+import { graphql } from "gatsby";
+import Navigation from "../components/navigation";
 
 export const query = graphql`
-  query NavQuery {
-    vertical: allSanityVertical {
-      edges {
-        node {
-          name
-          slug
-        }
-      }
-    }
-  }`;
+  query IndexPageQuery {
+  category: allSanityCategory {
+    ...NavQuery
+  }
+    }`;
 
 // markup
 const IndexPage = (props) => {
   const { data, errors } = props;
-  const links = data.vertical.edges.map(edge => (
-    <Link to={`/${edge.node.slug}`}> {edge.node.name} </Link>))
-  console.log(errors);
-
+  console.log(errors)
   return (
     <main>
       <title>not GOOP</title>
-      <h1>
-        A Lifestyle Site
-      </h1>
-      <div>
-        { links }
-      </div>
-        
+      <Navigation categories={data.category.edges} />
     </main>
   )
 }
