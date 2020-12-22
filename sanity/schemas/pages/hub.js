@@ -13,9 +13,9 @@ export default {
     {
       title: "Category",
       name: "category",
-      type: "reference",
       description: "The vertical that this is the hub page for.",
       validation: (Rule) => Rule.required(),
+      type: "reference",
       to: [
         {
           type: 'category',

@@ -11,14 +11,39 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
-      name: 'pageType',
-      title: 'Page Type',
-      description: 'The type of page this is.',
-      type: 'reference',
-      to: [
-           {type: 'hub'},
-           {type: 'listicle'},
-      ],
+      title: "Author",
+      name: "author",
+      type: "reference",
+      to: [{type: "person"}]
     },
+    {
+      title: "Hero Image",
+      name: "heroImage",
+      type: "image",
+      description: "The hero image for this page.",
+    },
+    {
+      title: "Route",
+      name: "route",
+      type: "route",
+      description: "The route for this page on the frontend",
+    },
+    {
+      title: 'Content', 
+      name: 'content',
+      type: 'array', 
+      of: [{type: 'block'},
+           {type: 'listItem'},
+           {type: 'hr'},
+           {type: 'listNumber'},
+           {type: 'productDisplay'}]
+    },
+    {
+      title: 'Categories', 
+      name: 'categories',
+      type: 'array', 
+      of: [{type: 'reference',
+            to: [{type: "category"}]}]
+    }
   ]
 }
