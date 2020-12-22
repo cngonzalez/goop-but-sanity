@@ -3,11 +3,11 @@ async function createVerticalPages(pathPrefix = "/", graphql, actions, reporter)
   const { createPage } = actions;
   const result = await graphql(`
     {
-      allSanityCategory(filter: {}) {
+      allSanityCategory {
         edges {
           node {
-            name
             slug
+            id
           }
         }
       }
@@ -24,7 +24,9 @@ async function createVerticalPages(pathPrefix = "/", graphql, actions, reporter)
     createPage({
       path,
       component: require.resolve("./src/templates/hub.js"),
-      context: edge.node,
+      context: {
+        catId: edge.node.id
+      }
     })
   })
 

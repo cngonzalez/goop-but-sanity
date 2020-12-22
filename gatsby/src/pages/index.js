@@ -8,12 +8,11 @@ export const query = graphql`
   category: allSanityCategory {
     ...NavQuery
   }
-    }`;
+}`;
 
 // markup
 const IndexPage = (props) => {
-  const { data, errors } = props;
-  console.log(errors)
+  const { data } = props;
   return (
     <Layout>
       <main>

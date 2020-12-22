@@ -24,6 +24,7 @@ a.nav_link {
   color: #EDDCD2;
   text-decoration: none;
   font-family: "Montserrat", Helvetica, sans-serif;
+  margin: 0 2rem;
 }
 
 a:hover.nav_link  {
