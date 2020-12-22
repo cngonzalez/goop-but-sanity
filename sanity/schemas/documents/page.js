@@ -39,11 +39,10 @@ export default {
            {type: 'productDisplay'}]
     },
     {
-      title: 'Categories', 
-      name: 'categories',
-      type: 'array', 
-      of: [{type: 'reference',
-            to: [{type: "category"}]}]
+      title: 'Category', 
+      name: 'category',
+      type: 'reference', 
+      to: [{type: "category"}]
     }
   ]
 }

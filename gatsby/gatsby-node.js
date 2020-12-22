@@ -30,6 +30,46 @@ async function createVerticalPages(pathPrefix = "/", graphql, actions, reporter)
 
 }
 
+async function createOtherPages(pathPrefix = "/", graphql, actions, reporter) {
+  const { createPage } = actions;
+  const result = await graphql(`
+    {
+       allSanityPage {
+          edges {
+            node {
+              route {
+                slug {
+                  current
+                }
+              }
+              category {
+                name
+              }
+              id
+            }
+          }
+        }
+    }
+  `);  
+
+  if (result.errors) {
+      throw result.errors
+  }
+
+  const pages = result.data.allSanityPage.edges || []
+  pages.forEach((edge, index) => {
+    //TODO: throw error, safeguard against empties
+const path = `/${edge.node.category.name}/${edge.node.route.slug.current}`
+    createPage({
+      path,
+      component: require.resolve("./src/templates/page.js"),
+      context: edge.node,
+    })
+  })
+
+}
+
 exports.createPages = async ({ graphql, actions, reporter }) => {
   await createVerticalPages("/", graphql, actions, reporter);
+  await createOtherPages("/", graphql, actions, reporter);
 }
