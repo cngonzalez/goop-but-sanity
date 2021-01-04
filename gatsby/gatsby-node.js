@@ -36,16 +36,14 @@ async function createOtherPages(pathPrefix = "/", graphql, actions, reporter) {
   const { createPage } = actions;
   const result = await graphql(`
     {
-       allSanityPage {
+       allSanityRoute {
           edges {
             node {
-              route {
-                slug {
-                  current
-                }
+              slug {
+                current
               }
-              category {
-                name
+              page {
+                id
               }
               id
             }

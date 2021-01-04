@@ -15,9 +15,9 @@ const NavBar = (props) => {
   return (
       <nav id="navigation" className={navigationStyles.navheader}>
         <h1>
-          LIFESTYLED <span className={navigationStyles.small}>(BY SANITY)</span>
+          Lifestyled.
         </h1>
-        <div className={navigationStyles.nav_link_bar}>
+        <div className={navigationStyles.navLinkBar}>
           { links }
         </div>
       </nav>

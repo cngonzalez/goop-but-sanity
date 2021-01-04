@@ -10,6 +10,6 @@ export default {
     },
   ],
   initialValue: {
-    secitonBreak: true
+    hr: true
   }
 }

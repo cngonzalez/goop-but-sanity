@@ -5,17 +5,33 @@ import Layout from "../components/layout"
 
 export const query = graphql`
   query HubPageQuery($catId: String) {
-  category: allSanityCategory {
-    ...NavQuery
+    category: allSanityCategory {
+      ...NavQuery
+    }
+    allSanityRoute(filter: {page: {category: {id: {eq: $catId}}}}) {
+      edges {
+        node {
+          slug {
+            current
+          }
+          page {
+            title
+            heroImage {
+              asset {
+                fluid {
+                  src
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
-  hub: sanityHub(category: {id: {eq: $catId}}) {
-    _rawContent
-  }
-}`;
+`;
 
 const HubPage = (props) => {
   const { data } = props;
-  debugger;
   console.log(data)
   return (
     <Layout>

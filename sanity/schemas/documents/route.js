@@ -14,12 +14,12 @@ export default {
   name: 'route',
   type: 'document',
   title: 'Page route',
-  // fieldsets: [
-  //   {
-  //     title: 'Visibility',
-  //     name: 'visibility',
-  //   },
-  // ],
+  fieldsets: [
+    {
+      title: 'Visibility',
+      name: 'visibility',
+    },
+  ],
   fields: [
     {
       name: 'page',
@@ -46,7 +46,6 @@ export default {
         }),
       options: {
         source: (doc, options) => options.parent.page,
-        // Read more: https://www.sanity.io/docs/slug-type
         slugify: myAsyncSlugifier
       }
     },
@@ -61,14 +60,14 @@ export default {
       description: 'For search engines. Will be generateed to /sitemap.xml',
       name: 'includeInSitemap',
       type: 'boolean',
-      // fieldset: 'visibility'
+      fieldset: 'visibility'
     },
     {
       title: 'Disallow in robots.txt',
       description: 'Hide this route for search engines like google',
       name: 'disallowRobots',
       type: 'boolean',
-      // fieldset: 'visibility'
+      fieldset: 'visibility'
     },
     /*
     // This can be used by a server-side rendered website. We plan to figure out proper JAMstack support

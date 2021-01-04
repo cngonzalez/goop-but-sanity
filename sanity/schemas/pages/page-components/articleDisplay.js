@@ -21,7 +21,7 @@ export default {
     },
     {
       title: "Article fields to include",
-      name: "productFields",
+      name: "articleFields",
       type: "array",
       of: [{type: "string"}],
       list: ["author", "excerpt"]

@@ -19,15 +19,5 @@ export default {
       type: "string",
       list: ["large", "small"]
     },
-    {
-      title: "Product fields to include",
-      name: "productFields",
-      type: "array",
-      of: [{type: "string"}],
-      list: ["name", "description", "price", "manufacturer"]
-    }
   ],
-  initialValue: {
-      productFields: ["name", "price", "manufacturer"]
-  }
 }

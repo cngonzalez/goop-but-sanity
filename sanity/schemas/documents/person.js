@@ -7,6 +7,12 @@ export default {
       title: "Name",
       name: "name",
       type: "string",
-    }
+    },
+    {
+      title: "Picture",
+      name: "picture",
+      type: "image",
+      description: "The portrait for this editor.",
+    },
   ]
 }

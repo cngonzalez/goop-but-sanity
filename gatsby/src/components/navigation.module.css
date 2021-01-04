@@ -1,5 +1,5 @@
 .navheader h1 {
-  font: 3rem "Montserrat", Helvetica, sans-serif;
+  font: 3rem "PT Serif", Times New Roman, sans-serif;
   letter-spacing: 1px;
   text-align: center;
   padding-bottom: 2rem;
@@ -8,14 +8,15 @@
 .navheader {
   background-color: #250217;
   color: #F0EFEB;
-  padding: 4rem 0 .5rem;
+  padding: 2.5rem 0 .5rem;
 }
 
 span.small {
   font-size: 1.5rem;
+  margin-left: 1rem;
 }
 
-.nav_link_bar {
+div.navLinkBar {
   margin: 1em auto;
   text-align: center;
 }
@@ -23,7 +24,8 @@ span.small {
 a.nav_link {
   color: #EDDCD2;
   text-decoration: none;
-  font-family: "Montserrat", Helvetica, sans-serif;
+  font-family: "Source Sans Pro", Helvetica, sans-serif;
+  text-transform: uppercase;
   margin: 0 2rem;
 }
 

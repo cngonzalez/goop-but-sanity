@@ -11,22 +11,30 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
-      title: "Author",
-      name: "author",
-      type: "reference",
-      to: [{type: "person"}]
+      title: "Authors",
+      name: "authors",
+      type: "array",
+      of: [{type: "reference",
+            to: [{type: "person"}]}
+      ]
+    },
+    {
+      title: 'Featured Article',
+      name: 'featuredArticle',
+      description: 'Toggle to feature this article on hub pages and elsewhere.',
+      type: 'boolean',
+    },
+    {
+      title: 'Category', 
+      name: 'category',
+      type: 'reference', 
+      to: [{type: "category"}]
     },
     {
       title: "Hero Image",
       name: "heroImage",
       type: "image",
       description: "The hero image for this page.",
-    },
-    {
-      title: "Route",
-      name: "route",
-      type: "route",
-      description: "The route for this page on the frontend",
     },
     {
       title: 'Content', 
@@ -38,11 +46,5 @@ export default {
            {type: 'listNumber'},
            {type: 'productDisplay'}]
     },
-    {
-      title: 'Category', 
-      name: 'category',
-      type: 'reference', 
-      to: [{type: "category"}]
-    }
   ]
 }
