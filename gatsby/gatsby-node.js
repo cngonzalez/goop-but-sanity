@@ -6,7 +6,9 @@ async function createVerticalPages(pathPrefix = "/", graphql, actions, reporter)
       allSanityCategory {
         edges {
           node {
-            slug
+            slug {
+              current
+            }
             id
           }
         }
@@ -20,7 +22,7 @@ async function createVerticalPages(pathPrefix = "/", graphql, actions, reporter)
 
   const verticals = result.data.allSanityCategory.edges || []
   verticals.forEach((edge, index) => {
-    const path = `/${edge.node.slug}`
+    const path = `/${edge.node.slug.current}`
     createPage({
       path,
       component: require.resolve("./src/templates/hub.js"),
@@ -44,6 +46,9 @@ async function createOtherPages(pathPrefix = "/", graphql, actions, reporter) {
               }
               page {
                 id
+                category {
+                  name
+                }
               }
               id
             }
@@ -56,10 +61,10 @@ async function createOtherPages(pathPrefix = "/", graphql, actions, reporter) {
       throw result.errors
   }
 
-  const pages = result.data.allSanityPage.edges || []
+  const pages = result.data.allSanityRoute.edges || []
   pages.forEach((edge, index) => {
     //TODO: throw error, safeguard against empties
-const path = `/${edge.node.category.name}/${edge.node.route.slug.current}`
+const path = `/${edge.node.page.category.name}/${edge.node.slug.current}`
     createPage({
       path,
       component: require.resolve("./src/templates/page.js"),

@@ -1,13 +1,9 @@
 import * as React from "react"
 import { graphql } from "gatsby";
-import Navigation from "../components/navigation";
 import Layout from "../components/layout"
 
 export const query = graphql`
   query HubPageQuery($catId: String) {
-    category: allSanityCategory {
-      ...NavQuery
-    }
     allSanityRoute(filter: {page: {category: {id: {eq: $catId}}}}) {
       edges {
         node {
@@ -41,7 +37,6 @@ const HubPage = (props) => {
   return (
     <Layout>
       <main>
-        <Navigation categories={data.category.edges} />
       </main>
     </Layout>
     )

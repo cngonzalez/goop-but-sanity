@@ -1,11 +1,26 @@
 import * as React from "react"
-import { Link } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
 import navigationStyles from "./navigation.module.css"
 
-const NavBar = (props) => {
-  const links = props.categories.map((category, i) => (
+export default function NavBar(props) {
+
+  const data = useStaticQuery(graphql`
+  query NavQuery {
+    allSanityCategory {
+      edges {
+        node {
+          name
+          slug {
+            current
+          }
+        }
+      }
+    }
+  }`);
+
+  const links = data.allSanityCategory.edges.map((category, i) => (
     <Link 
-      to={`/${category.node.slug}`}
+      to={`/${category.node.slug.current}`}
       className={navigationStyles.nav_link}
       key={i}>
         {category.node.name} 
@@ -24,5 +39,3 @@ const NavBar = (props) => {
         
   )
 }
-
-export default NavBar
