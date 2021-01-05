@@ -13,8 +13,11 @@ export default {
     {
       title: "slug",
       name: "slug",
-      type: "string",
+      type: "slug",
       description: "The slug for this category (remove with new route obj)",
+      options: {
+        source: "name",
+      },
       validation: (Rule) => Rule.required(),
     }
   ]

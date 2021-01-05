@@ -31,8 +31,13 @@ export const query = graphql`
 `;
 
 const HubPage = (props) => {
+  //TODO: handle errors
   const { data } = props;
   console.log(data)
+  //separate out featured article
+  //order by date desc
+  //create asset for featured article
+  //separate out other subsections and return bar
   return (
     <Layout>
       <main>

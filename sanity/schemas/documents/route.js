@@ -1,14 +1,5 @@
-import client from 'part:@sanity/base/client'
 // import { MdLink } from "react-icons/md"
-
-function myAsyncSlugifier(input) {
-  const query = '*[_id == $id][0]'
-  const params = {id: input._ref}
-  console.log(input)
-  return client.fetch(query, params).then(doc => {
-    return doc.title.toLowerCase().replace(/\s+/g, '-').slice(0, 200);
-  });
-}
+import {slugifier} from '../utils'
 
 export default {
   name: 'route',
@@ -46,7 +37,7 @@ export default {
         }),
       options: {
         source: (doc, options) => options.parent.page,
-        slugify: myAsyncSlugifier
+        slugify: slugifier
       }
     },
     // {
