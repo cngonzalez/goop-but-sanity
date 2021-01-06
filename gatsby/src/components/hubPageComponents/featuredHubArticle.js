@@ -1,4 +1,5 @@
-import React from "react";
+import React from "react"
+import hubStyles from "./hubPage.module.css"
 
 const flattenArticles = (groups) => {
   const today = new Date();
@@ -20,14 +21,15 @@ const flattenArticles = (groups) => {
 
 const findFeatured = (groups) => {
   const flattenedArticles = flattenArticles(groups);
-  flattenedArticles.sort((a, b) => (a.publishedDate - b.publishedDate));
 
   const featured = flattenedArticles.filter((article) => (
     !!article.featuredArticleDate))
 
   if (featured.length) {
+    featured.sort((a, b) => (a.featuredArticleDate - b.featuredArticleDate));
     return featured[0]}
   else {
+    flattenedArticles.sort((a, b) => (a.publishedDate - b.publishedDate));
     return flattenedArticles[0]
   }
 }
@@ -35,8 +37,14 @@ const findFeatured = (groups) => {
 
 const featuredHubArticle = ({hubPageGroups}) => {
   const article = findFeatured(hubPageGroups);
-  console.log(article) 
-  return <div /> 
+  return (
+    <div className={hubStyles.featuredContainer}> 
+        <img src={article.heroImage.asset.fluid.src} />
+        <div class={hubStyles.featuredHubText}>
+          {article.title}
+        </div>
+    </div>
+  )
 }
 
  export default featuredHubArticle;

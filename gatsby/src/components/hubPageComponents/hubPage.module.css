@@ -1,0 +1,8 @@
+div.featuredContainer {
+  position: relative;
+}
+
+div.featuredText {
+  top: 20%;
+  left: 5%;
+}
