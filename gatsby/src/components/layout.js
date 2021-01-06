@@ -5,7 +5,7 @@ import NavBar from './navigation'
 
 export default function Layout({ children }) {
 return <main>
-  <title>Lifstyled.</title>
+  <title>Lifestyled.</title>
   <NavBar />
   {children}
   </main> }
