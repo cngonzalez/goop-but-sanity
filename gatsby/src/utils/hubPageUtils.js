@@ -1,6 +1,3 @@
-import React from "react"
-import hubStyles from "./hubPage.module.css"
-
 const flattenArticles = (groups) => {
   const today = new Date();
   const flattenedArticles = [];
@@ -19,7 +16,7 @@ const flattenArticles = (groups) => {
 }
 
 
-const findFeatured = (groups) => {
+export function findFeatured(groups) {
   const flattenedArticles = flattenArticles(groups);
 
   const featured = flattenedArticles.filter((article) => (
@@ -34,17 +31,3 @@ const findFeatured = (groups) => {
   }
 }
 
-
-const featuredHubArticle = ({hubPageGroups}) => {
-  const article = findFeatured(hubPageGroups);
-  return (
-    <div className={hubStyles.featuredContainer} 
-    style={{backgroundImage: `url(${article.heroImage.asset.fluid.src})`}}>
-        <h2 class={hubStyles.featuredText}>
-          {article.title}
-        </h2>
-    </div>
-  )
-}
-
- export default featuredHubArticle;

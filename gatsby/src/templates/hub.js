@@ -1,7 +1,9 @@
 import * as React from "react"
 import { graphql } from "gatsby";
-import Layout from "../components/layout"
-import FeaturedHubArticle from "../components/hubPageComponents/featuredHubArticle"
+import Layout from "../components/layout";
+import { findFeatured } from "../utils/hubPageUtils";
+import FeaturedHubArticle from "../components/featuredHubArticle";
+import ArticleGroup from "../components/articleGroup";
 
 export const query = graphql`
 query HubPageQuery($catId: String) {
@@ -26,6 +28,7 @@ allSanityPage(filter: {subsection: {category: {id: {eq: $catId}}}},
             name
           }
           featuredArticleDate
+          id
         }
       }
     }
@@ -36,13 +39,14 @@ allSanityPage(filter: {subsection: {category: {id: {eq: $catId}}}},
 const HubPage = (props) => {
   //TODO: handle errors
   const { data } = props;
-  //separate out featured article
-  //order by date desc
-  //create asset for featured article
-  //separate out other subsections and return bar
+  const articleGroups = data.allSanityPage.group.map((group, i) => (
+      <ArticleGroup group={group} key={i} />
+    ))
+
   return (
     <Layout>
-      <FeaturedHubArticle hubPageGroups={data.allSanityPage.group}/> 
+      <FeaturedHubArticle article={findFeatured(data.allSanityPage.group)}/> 
+      { articleGroups }
     </Layout>
   )
 }
