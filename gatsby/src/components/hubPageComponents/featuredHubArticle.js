@@ -38,11 +38,11 @@ const findFeatured = (groups) => {
 const featuredHubArticle = ({hubPageGroups}) => {
   const article = findFeatured(hubPageGroups);
   return (
-    <div className={hubStyles.featuredContainer}> 
-        <img src={article.heroImage.asset.fluid.src} />
-        <div class={hubStyles.featuredHubText}>
+    <div className={hubStyles.featuredContainer} 
+    style={{backgroundImage: `url(${article.heroImage.asset.fluid.src})`}}>
+        <h2 class={hubStyles.featuredText}>
           {article.title}
-        </div>
+        </h2>
     </div>
   )
 }

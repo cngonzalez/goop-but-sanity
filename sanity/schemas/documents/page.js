@@ -48,6 +48,10 @@ export default {
       name: "heroImage",
       type: "image",
       description: "The hero image for this page.",
+      options: {
+        crop: true,
+        hotspot: true
+      }
     },
     {
       title: 'Content', 

@@ -1,8 +1,14 @@
 div.featuredContainer {
-  position: relative;
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
-div.featuredText {
-  top: 20%;
-  left: 5%;
+h2.featuredText {
+  font-size: 4rem;
+  color: white;
 }

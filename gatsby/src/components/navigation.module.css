@@ -1,5 +1,6 @@
 .navheader h1 {
   font: 3rem "PT Serif", Times New Roman, sans-serif;
+  font-weight: 800;
   letter-spacing: 1px;
   text-align: center;
   padding-bottom: 2rem;
